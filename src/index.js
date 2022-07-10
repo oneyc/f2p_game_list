@@ -8,6 +8,7 @@ import {
   Route,
 } from "react-router-dom";
 import GamesList from './pages/GamesList';
+import GameDetail from './pages/GameDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/games" key="/games" element={<GamesList />} />
+          <Route path="/games" key="/games" element={<GamesList />}>
+          </Route>
+          <Route path="/games/:gameId" key=":gameId" element={<GameDetail/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
