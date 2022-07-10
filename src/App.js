@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from "react"
 import "./App.module.css"
 import Header from './components/Header';
 import { Outlet } from "react-router-dom";
@@ -5,17 +6,34 @@ import Sidebar from "./components/Sidebar";
 
 /*
 Clickable sidebar
-Game detail page
 Infinite Scroll
 */
 
 function App() {
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuStateHandler = () =>{
+    console.log("menuStateHandler called");
+    setIsMenuOpen(!isMenuOpen);
+    toggleBodyScroll();
+  }
+
+  const toggleBodyScroll = () =>{
+    if(!isMenuOpen){
+      document.body.style.overflow = 'hidden';
+    }
+    else{
+      document.body.style.overflow = 'unset';
+    }
+  }
+
   return (
-    <body>
-      <Header />
-      <Sidebar/>
+    <div>
+      <Header setSidebar={menuStateHandler}/>
+      <Sidebar sidebarVisibility={isMenuOpen}/>
       <Outlet/>
-    </body>
+    </div>
   );
 }
 

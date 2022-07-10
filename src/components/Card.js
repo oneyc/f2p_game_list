@@ -1,5 +1,6 @@
 import classes from"./Card.module.css"
 import DUMMY_GAME from "../data/dummy_game"
+import { Navigate } from "react-router-dom"
 
 const Card = (props) => {
     return <div>

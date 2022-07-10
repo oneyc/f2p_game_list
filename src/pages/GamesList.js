@@ -16,7 +16,6 @@ const GamesList = (props) => {
 
     return(
         <section className={classes.GamesList}>
-            {/* <Filter/> */}
             <h1>GamesList</h1>        
             <Card/>
             <Card/>

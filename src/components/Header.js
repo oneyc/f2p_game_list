@@ -1,9 +1,15 @@
 import classes from "./Header.module.css"
 
-const Header = () => {
+const Header = (props) => {
+
+    const SidebarHandler = () => {
+        console.log("SidebarHandler clicked")
+        props.setSidebar()
+    }
+
     return(
         <div className={classes.header}>
-            <div className={classes.bugericon}>
+            <div className={classes.bugericon} onClick={SidebarHandler}>
                 <span className={classes.burger}/>
                 <span className={classes.burger}/>
                 <span className={classes.burger}/>

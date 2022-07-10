@@ -9,16 +9,18 @@ import {
 } from "react-router-dom";
 import GamesList from './pages/GamesList';
 import GameDetail from './pages/GameDetail';
+import NoMatch from './pages/NoMatch';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
+        <Route exact path={"/"} element={<App />}>
           <Route path="/games" key="/games" element={<GamesList />}>
           </Route>
           <Route path="/games/:gameId" key=":gameId" element={<GameDetail/>}/>
+          <Route path="*" element={<NoMatch/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

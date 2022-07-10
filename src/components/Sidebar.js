@@ -1,12 +1,14 @@
 import classes from "./Sidebar.module.css";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+    
     return (
-        <div className={classes.sidebar}>
+        <div className={props.sidebarVisibility ? classes.sidebarShown:classes.sidebarHidden}>
             <div className={classes.section}>
                 <h3>Platform</h3>
                     <h4>PC</h4>
                     <h4>Browser</h4>
+                    {console.log(props.sidebarVisibility)}
             </div>
             <div className={classes.section}>
                 <h3>Categories</h3>
