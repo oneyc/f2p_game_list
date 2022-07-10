@@ -38,27 +38,15 @@ img{
     margin: 10px 20px;
     color:rgba(255,255,255,0.3);
     max-height: 50px;
+    line-height: 1.8;
     overflow: hidden;
 }
 
-/* .description:after{
-    content  : "";
-    position : absolute;
-    z-index  : 1;
-    bottom   : -150px;
-    left     : 0;
-    pointer-events   : none;
-    background-image : linear-gradient(to bottom, 
-                      rgba(0,0,0, 0), 
-                      rgba(0,0,0, 0.5) 90%);
-    width    : 100%;
-    height   : 4em;
-  
-} */
-
 .descriptionShow{
     margin: 10px 20px;
-    color:lightgrey;
+    color:rgba(255,255,255,0.7);
+    line-height: 1.8;
+    text-align: justify;
 }
 
 .requirementContainer{
