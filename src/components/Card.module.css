@@ -1,0 +1,28 @@
+.card{
+    box-sizing: border-box;
+    width: 250px;
+    height: 300px;
+    margin: 50px auto;
+    border-radius: 0.2rem;
+    color:white;
+    background-color: rgba(0,0,0,0.3);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.card img{
+    width: 100%;
+}
+
+.cardtitle{
+    margin: 0px;
+}
+
+.carddescription{
+    margin: 0px;
+}
