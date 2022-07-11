@@ -4,13 +4,14 @@
     justify-content: space-between;
     width: 100%;
     height: auto;
-    background-color: #116466;
+    background-color: rgba(0,0,0,0.3);
 }
 
 .logo{
     font-size: 2rem;
     margin: auto 15px;
-    color: white;
+    color: #D83F87;
+    cursor: pointer;
 }
 
 .bugericon{
@@ -24,7 +25,22 @@
 
 .burger {
     width: 30px;
-    height: 3px;
-    background-color: white;
+    height: 4px;
+    background-color: #D83F87;
     margin: 4px 0;
+    border-radius: 10rem;
   }
+
+  @media screen and (min-width: 768px){
+    .bugericon{
+        display: none;
+    }
+
+    header{
+        justify-content: center;
+    }
+
+    .logo{
+        margin: 15px auto;
+    }
+}

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import classes from "./GameDetail.module.css"
-import { Slide, Fade } from 'react-slideshow-image';
-import gameDetail from "../data/dummy_game_detail"; 
+import { Fade } from 'react-slideshow-image';
 import "react-slideshow-image/dist/styles.css";
 
 const GameDetail = () => {
@@ -10,22 +9,8 @@ const GameDetail = () => {
     const [readMore, setReadMore] = useState(true);
     const [gameDetail, setGameDetail] = useState([]);
     const [slideImages, setSlideImages] = useState([]);
+    const navigate = useNavigate();
 
-    // const slideImages = [
-    //     {
-    //       url: gameDetail.screenshots[0].image,
-    //       caption: 'Slide 1'
-    //     },
-    //     {
-    //       url: gameDetail.screenshots[1].image,
-    //       caption: 'Slide 2'
-    //     },
-    //     {
-    //       url: gameDetail.screenshots[2].image,
-    //       caption: 'Slide 3'
-    //     },
-    //   ];
-    
     const handleReadMore = () => {
         setReadMore(!readMore);
     }
@@ -41,7 +26,19 @@ const GameDetail = () => {
         
         window.scrollTo(0, 0);
         fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${params.gameId}`, options)
-            .then(response => response.json())
+            .then(response => {
+                if(response.ok){
+                    return response.json();
+                }
+                else if(response.status === 404){
+                    console.log("ERRRORALERT")
+                    navigate("/NoMatch", {replace: true});
+                    return Promise.reject('error 404')
+                }
+                else{
+                    return Promise.reject('some other error: ' + response.status)
+                }     
+            })
             .then(response => {
                 setGameDetail(response)
                 let tempArr = [];
@@ -55,14 +52,14 @@ const GameDetail = () => {
 
     if(gameDetail.length !== 0){
         return(
-            <div>
+            <div className={classes.container}>
                 <img className={classes.promoImage} src={gameDetail.thumbnail}></img>
                 <div className={classes.gameInfo}>
-                    <h2>{gameDetail.title}</h2>
+                    <h1>{gameDetail.title}</h1>
                     <div className={classes.devInfo}>
-                        <p >Developer: {gameDetail.developer}</p>
-                        <p>Publisher: {gameDetail.publisher}</p>
-                        <p>Released: {gameDetail.release_date}</p>
+                        <p><span>Developer: </span> {gameDetail.developer}</p>
+                        <p><span>Publisher: </span> {gameDetail.publisher}</p>
+                        <p><span>Released Date: </span> {gameDetail.release_date}</p>
                     </div>
                     <p className={classes.shortDescription}>{gameDetail.short_description}</p>
                 </div>

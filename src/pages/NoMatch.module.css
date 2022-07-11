@@ -1,0 +1,23 @@
+.contentContainer{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 90vh;
+}
+
+
+.title{
+    color: #D83F87;
+}
+
+.returnButton{
+    color: #E98074;
+    padding: 10px;
+    border: 1px solid;
+    margin: 0px auto;
+    width:fit-content;
+    cursor: pointer;
+}

@@ -5,8 +5,8 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 
 /*
-Clickable sidebar
-Infinite Scroll
+  Sidebar function (state, can change fetch params) 
+  Breadcrumbs
 */
 
 function App() {

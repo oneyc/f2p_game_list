@@ -1,7 +1,60 @@
+
 h1{
     text-align: center;
-    color:white;
+    color:#E98074;
 }
 
-.GamesList{
+.gamesList{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+
+.paginationButtons{
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    padding: 0px;
+    margin: 30px auto 0px auto ;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.paginationButtons a{
+    padding: 2px;
+    margin: 2px 7px;
+    color: #D83F87;
+}
+
+.activeButton a{
+    border-bottom: 1px #D83F87 solid;
+}
+
+.spinnerContainer{
+    background-color: transparent;
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;  
+}
+
+.backToTop{
+    color: #D83F87;
+    cursor: pointer;
+    padding: 10px;
+    margin: 15px auto 30px auto;
+    border: 1px solid;
+    width: fit-content;
+}
+
+@media screen and (min-width: 768px){
+    .gamesList{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

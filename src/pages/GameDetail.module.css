@@ -1,37 +1,48 @@
 @import "react-slideshow-image/dist/styles.css";
 
+.container{
+    max-width: 800px;
+    margin: 0px auto;
+}
+
 img{
     width: 100%;
 }
 
-.gameInfo{
-}
-
-.gameInfo h2{
-    color: white;
+.gameInfo h1{
+    color: #D83F87;
     margin: 15px;
+    text-align: start;
 }
 
 .devInfo p{
     margin:5px 15px;
-    color: whitesmoke;
+    color: rgba(255,255,255,0.7);
+}
+
+.devInfo span{
+    color:#35bdcf;
 }
 
 .shortDescription{
-    color: lightgray;
+    color: rgba(255,255,255,0.7);
     margin: 30px 15px;
 }
 
 .readMore{
     position: relative;
     text-align: center;
-    color:wheat;
+    color:#35bdcf;
     z-index  : 2;
 }
 
 .descriptionContainer{
     padding-bottom: 15px;
     width: 100%;
+}
+
+.descriptionContainer h3{
+    color:#D83F87;
 }
 
 .description{
@@ -56,7 +67,15 @@ img{
 
 .requirementContainer h3{
     margin: 0px;
+    color:#D83F87;
 }
 .requirementContainer p{
-    color: white;
+    color: rgba(255,255,255,0.7);
+}
+
+@media screen and (min-width: 768px){
+    .container{
+        margin: 30px auto;
+
+    }
 }

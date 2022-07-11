@@ -1,13 +1,13 @@
 .card{
-    box-sizing: border-box;
     width: 250px;
-    height: 300px;
-    margin: 50px auto;
-    border-radius: 0.2rem;
-    color:white;
+    height: 320px;
+    margin: 30px auto;
+    border-radius: 0.5rem;
+    color:#FFE400;
     background-color: rgba(0,0,0,0.3);
     overflow: hidden;
     cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.2);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -19,10 +19,27 @@
     width: 100%;
 }
 
+.textContainer{
+    padding: 20px
+}
+
 .cardtitle{
-    margin: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0px 0px 10px 0px;
+    color:#DA7B93;
+
 }
 
 .carddescription{
+    color: #909da8;
     margin: 0px;
+    height: 80px;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 768px){
+    .card{
+        margin: 15px;
+    }
 }

@@ -1,7 +1,17 @@
+import React, { useState } from "react";
 import classes from "./Header.module.css"
 import { useNavigate } from "react-router-dom"
+import category from "../data/category";
+import sortList from "../data/sortList";
 
 const Header = (props) => {
+
+    const [platform, setPlatform] = useState({browser: false, pc: true});
+    const [categories, setCategories] = useState(category);
+    const [sort, setSort] = useState(sortList);
+    let arr = [];
+    Object.keys(categories).forEach(key => arr.push(key))
+    const allCats = arr.map(category => <p>{category}</p>)
 
     const navigate = useNavigate();
     const SidebarHandler = () => {

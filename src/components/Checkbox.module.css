@@ -1,0 +1,32 @@
+/* taken from https://css-tricks.com/inclusively-hidden/ */
+input[type="checkbox"] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .checkbox {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border: 2px #ddd solid;
+    margin-right: 4px;
+    border-color: red;
+    background: red;
+
+  }
+  
+  .checkbox--active {
+    border-color: purple;
+    background: purple;
+  }
