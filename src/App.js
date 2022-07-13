@@ -14,7 +14,6 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuStateHandler = () =>{
-    console.log("menuStateHandler called");
     setIsMenuOpen(!isMenuOpen);
     toggleBodyScroll();
   }

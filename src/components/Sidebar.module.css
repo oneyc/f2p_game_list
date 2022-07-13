@@ -86,7 +86,7 @@ h4{
         height: 100px;
         background-color: rgba(0, 0, 0, 0.6);
         position:relative;
-        display:block;
+        display:none;
     }
 
     .sidebarShown{
@@ -94,7 +94,7 @@ h4{
         height: 100px;
         background-color: rgba(0, 0, 0, 0.8);
         position:relative;
-        display:block;
+        display:none;
     }
 
     .section, .collapsible, .collapsibleList{

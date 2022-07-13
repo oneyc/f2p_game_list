@@ -1,9 +1,9 @@
 .card{
     width: 250px;
-    height: 320px;
+    height: 350px;
     margin: 30px auto;
     border-radius: 0.5rem;
-    color:#FFE400;
+    padding-bottom: 10px;
     background-color: rgba(0,0,0,0.3);
     overflow: hidden;
     cursor: pointer;
@@ -27,16 +27,33 @@
     white-space: nowrap;
     overflow: hidden;
     margin: 0px 0px 10px 0px;
-    color:#DA7B93;
+    color:#D83F87;
 
 }
 
 .carddescription{
-    color: #909da8;
-    margin: 0px;
-    height: 80px;
+    color: rgba(255,255,255,0.7);
+    /* margin: 0px;
+    height: 80px; */
     overflow: hidden;
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }
+
+.platformInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 22px 0px 15px;
+}
+
+.platformInfo p{
+    padding: 0px;
+    margin: 0px;
+    color: #35bdcf;
+}
+
 
 @media screen and (min-width: 768px){
     .card{

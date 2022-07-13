@@ -23,7 +23,7 @@ const GamesList = (props) => {
             .slice(currentGameIndex, currentGameIndex + gamesPerPage)
             .map(game => {
                 return(
-                    <Card id={game.id} data={game} onClick={handleSelectedGame}></Card>
+                    <Card id={game.id} data={game} key={game.id} onClick={handleSelectedGame}></Card>
                 )
             })
     );
@@ -32,7 +32,7 @@ const GamesList = (props) => {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'b60695f14amshbe33f9fd6323808p190367jsnf9ebb1e8c832',
+                'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
                 'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
             }
         };
@@ -40,11 +40,9 @@ const GamesList = (props) => {
             fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
             .then(response => {
                 if(response.status === 200){
-                    console.log('200 OK')
                     return response.json();
                 }
                 else if(response.status === 404){
-                    console.log("ERRRORALERT")
                     return Promise.reject('error 404')
                 }
                 else{
@@ -52,7 +50,6 @@ const GamesList = (props) => {
                 }               
             })
             .then(response => {
-                console.log(response)
                 setGames(response)
             })
             .catch(error => console.log('error is', error));
@@ -76,7 +73,7 @@ const GamesList = (props) => {
         return(
             <section className={classes.mainSection}>
                 {/* <h1>{games.length} games found</h1> */}
-                <ReactPaginate 
+                <ReactPaginate
                         previousLabel={"<"}
                         nextLabel={">"}
                         pageCount={Math.ceil(games.length/gamesPerPage)}
@@ -89,8 +86,10 @@ const GamesList = (props) => {
                     />
                 <div className={classes.gamesList}>
                 {displayGames()}
-                <h3 className={classes.backToTop} onClick={handleBackToTop}>Back to top</h3>
-                </div>      
+                </div>
+                <div className={classes.backToTopContainer} >
+                    <h3 className={classes.backToTop} onClick={handleBackToTop}>Back to top</h3>
+                </div>   
             </section>
         )
     }

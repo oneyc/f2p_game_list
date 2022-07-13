@@ -5,14 +5,39 @@
     margin: 0px auto;
 }
 
+.breadcrumbs{
+    display:flex;
+    padding: 15px 0px 15px 13px;
+    margin: 0px;
+    justify-content: flex-start;
+}
+
+.breadcrumbs li{
+    list-style: none;
+    text-decoration: none;
+    margin-right: 5px;
+    color: rgba(255,255,255,0.7);
+}
+
+.breadcrumbs a{
+    list-style: none;
+    text-decoration: none;
+    color: #D83F87;
+}
+
 img{
     width: 100%;
 }
 
 .gameInfo h1{
     color: #D83F87;
-    margin: 15px;
+    margin: 13px;
     text-align: start;
+}
+
+.gameInfo{
+    background-color: rgba(0,0,0,0.3);
+    height: fit-content;
 }
 
 .devInfo p{
@@ -29,6 +54,19 @@ img{
     margin: 30px 15px;
 }
 
+.mainContent{
+    background-color: rgba(0,0,0,0.3);
+}
+
+.platformInfo{
+    padding-left: 10px;
+}
+
+.platformText{
+    color: #D83F87;
+    margin:0px 0px 10px 5px;
+}
+
 .readMore{
     position: relative;
     text-align: center;
@@ -41,14 +79,20 @@ img{
     width: 100%;
 }
 
-.descriptionContainer h3{
+.descriptionContainer h2{
+    margin: 15px 0px 0px 20px;
     color:#D83F87;
 }
 
+.descriptionContainer hr{
+    border:1px #D83F87 solid;
+    margin: 10px 20px;
+
+}
 .description{
     margin: 10px 20px;
     color:rgba(255,255,255,0.3);
-    max-height: 50px;
+    max-height: 55px;
     line-height: 1.8;
     overflow: hidden;
 }
@@ -73,9 +117,31 @@ img{
     color: rgba(255,255,255,0.7);
 }
 
+.requirementContainer span{
+    color:#35bdcf;
+}
+
+.spinnerContainer{
+    background-color: transparent;
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;  
+}
+
+box-icon{
+    margin: 0px 5px 15px 5px;
+}
+
 @media screen and (min-width: 768px){
     .container{
-        margin: 30px auto;
-
+        display: grid;
+        margin-top: 50px;
+        gap: 50px 50px;
+        grid-template-columns: 300px 600px;
     }
+
+    /* .gameInfo{
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }*/
 }

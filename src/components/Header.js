@@ -15,7 +15,6 @@ const Header = (props) => {
 
     const navigate = useNavigate();
     const SidebarHandler = () => {
-        console.log("SidebarHandler clicked")
         props.setSidebar()
     }
 

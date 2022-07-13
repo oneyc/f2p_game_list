@@ -1,14 +1,14 @@
 .header{
     display: flex;
     flex-flow: row;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     height: auto;
     background-color: rgba(0,0,0,0.3);
 }
 
 .logo{
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: auto 15px;
     color: #D83F87;
     cursor: pointer;
@@ -19,7 +19,7 @@
     width: auto;
     padding: 10px;
     margin: 0px 5px;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
