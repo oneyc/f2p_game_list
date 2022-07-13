@@ -21,7 +21,7 @@ const GameDetail = () => {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'b60695f14amshbe33f9fd6323808p190367jsnf9ebb1e8c832',
+                'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
                 'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
             }
         };
