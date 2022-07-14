@@ -31,7 +31,8 @@ h1{
 }
 
 .activeButton a{
-    border-bottom: 1px #D83F87 solid;
+    color: #35bdcf;
+    border-bottom: 1px #35bdcf solid;
 }
 
 .spinnerContainer{
