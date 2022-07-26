@@ -1,6 +1,8 @@
-# F2P!
+# F2P! Live Link
+https://f2p-games.vercel.app/games
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Description
+Repository of free games, made with React based on 3rd party (Freetogame) API.
 
 ## Available Scripts
 
