@@ -12,6 +12,8 @@
     color: #D83F87;
     font-size: 1.25rem;
     width: 90%;
+    max-width: 1200px;
+    margin: 0px 1.5rem 0px 1.5rem;
     background-color: transparent;
     border: 1px solid #D83F87;
     border-radius: 0.5rem;
