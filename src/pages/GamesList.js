@@ -11,7 +11,7 @@ const GamesList = () => {
 
     const [games, setGames] = useState([]);
     const [filteredGames, setFilteredGames] = useState([]);
-    const [pageNumber, setPageNumber] = useState(0)
+    const [pageNumber, setPageNumber] = useState(null)
     const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
 
@@ -84,6 +84,8 @@ const GamesList = () => {
         const filteredList = 
             games.filter(games => games.title.toLowerCase().includes(searchQuery.toLowerCase()))
         setFilteredGames(filteredList)
+        setPageNumber(0)
+        console.log(pageNumber)
     }, [searchQuery])
 
     
@@ -101,6 +103,7 @@ const GamesList = () => {
                         nextLinkClassName={classes.nextButton}
                         disabledClassName={classes.disabledButton}
                         activeClassName={classes.activeButton}
+                        forcePage={pageNumber}
                     />
                 <div className={classes.gamesList}>
                 {displayGames()}
