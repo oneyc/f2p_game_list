@@ -10,6 +10,7 @@ import { BallTriangle } from "react-loader-spinner";
 const GamesList = () => {
 
     const [games, setGames] = useState([]);
+    const [filteredGames, setFilteredGames] = useState([]);
     const [pageNumber, setPageNumber] = useState(0)
     const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
@@ -26,16 +27,16 @@ const GamesList = () => {
         navigate("../games/" + event.currentTarget.id, {replace: true})
     }
 
-    const displayGames = (() => 
-        games
-            .filter(games => games.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    const displayGames = () => 
+        {return filteredGames
             .slice(currentGameIndex, currentGameIndex + gamesPerPage)
             .map(game => {
                 return(
                     <Card id={game.id} data={game} key={game.id} onClick={handleSelectedGame}></Card>
                 )
             })
-    );
+        }
+    ;
 
     const changePage = ({selected}) => {
         window.scrollTo(0, 0);
@@ -69,6 +70,7 @@ const GamesList = () => {
             })
             .then(response => {
                 setGames(response)
+                setFilteredGames(response);
             })
             .catch(error => console.log('error is', error));
         }
@@ -78,15 +80,21 @@ const GamesList = () => {
 
     }, [])
 
+    useEffect(() => {
+        const filteredList = 
+            games.filter(games => games.title.toLowerCase().includes(searchQuery.toLowerCase()))
+        setFilteredGames(filteredList)
+    }, [searchQuery])
+
+    
     if(games.length !== 0){
         return(
             <section className={classes.mainSection}>
-                {/* <h1>{games.length} games found</h1> */}
                 <Searchbar getQuery={getSearchQuery}/>
                 <ReactPaginate
                         previousLabel={"<"}
                         nextLabel={">"}
-                        pageCount={Math.ceil(games.length/gamesPerPage)}
+                        pageCount={Math.ceil(filteredGames.length/gamesPerPage)}
                         onPageChange={changePage}
                         containerClassName={classes.paginationButtons}
                         previousLinkClassName={classes.previousButton}
