@@ -1,0 +1,18 @@
+.searchbarContainer{
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar{
+    padding: 0.75rem;
+    color: #D83F87;
+    font-size: 1.25rem;
+    width: 90%;
+    background-color: transparent;
+    border: 1px solid #D83F87;
+    border-radius: 0.5rem;
+}

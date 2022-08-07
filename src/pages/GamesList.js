@@ -1,25 +1,34 @@
 import React, { useState, useEffect }  from "react";
 import { useNavigate } from "react-router-dom";
 import Card from '../components/Card';
+import Searchbar from "../components/Searchbar";
+
 import classes from "./GamesList.module.css"
 import ReactPaginate from "react-paginate";
 import { BallTriangle } from "react-loader-spinner";
 
-const GamesList = (props) => {
+const GamesList = () => {
 
     const [games, setGames] = useState([]);
     const [pageNumber, setPageNumber] = useState(0)
+    const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
 
     const gamesPerPage = 16;
     let currentGameIndex = pageNumber * gamesPerPage;
     
+    const getSearchQuery = (query) => {
+        setSearchQuery(query);
+        console.log(searchQuery);
+    }
+
     const handleSelectedGame = (event) => {
         navigate("../games/" + event.currentTarget.id, {replace: true})
     }
 
     const displayGames = (() => 
         games
+            .filter(games => games.title.toLowerCase().includes(searchQuery.toLowerCase()))
             .slice(currentGameIndex, currentGameIndex + gamesPerPage)
             .map(game => {
                 return(
@@ -27,6 +36,15 @@ const GamesList = (props) => {
                 )
             })
     );
+
+    const changePage = ({selected}) => {
+        window.scrollTo(0, 0);
+        setPageNumber(selected);
+    }
+
+    const handleBackToTop = () => {
+        window.scrollTo(0, 0);
+    }
 
     useEffect(() => {
         const options = {
@@ -60,19 +78,11 @@ const GamesList = (props) => {
 
     }, [])
 
-    const changePage = ({selected}) => {
-        window.scrollTo(0, 0);
-        setPageNumber(selected);
-    }
-
-    const handleBackToTop = () => {
-        window.scrollTo(0, 0);
-    }
-
     if(games.length !== 0){
         return(
             <section className={classes.mainSection}>
                 {/* <h1>{games.length} games found</h1> */}
+                <Searchbar getQuery={getSearchQuery}/>
                 <ReactPaginate
                         previousLabel={"<"}
                         nextLabel={">"}
